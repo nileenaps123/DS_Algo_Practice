@@ -199,28 +199,29 @@ class DoublyLinkedList{
     //5 10 15 20
     //20 15 10 5
 
-    reverse(){
+    reverse(){   /* Swap next and prev for all nodes of
+       doubly linked list */
+
+
+        if(!this.head || !this.head.next)return this.head;
 
         let curr=this.head;
-        let prev=null;
-        let next=curr.next;
         this.tail=curr;
+        let temp;
 
-        while(curr){
-            curr.next=prev;
-            curr.prev=next;
-            prev=curr;
-            curr=next;
-            if (!curr) break;
-            next=curr.next;
-
+        while(curr!==null){
+            
+            temp=curr.prev;
+            curr.prev=curr.next;
+            curr.next=temp;
+            curr=curr.prev;
+            
         }
-        this.head=prev;
+        this.head=temp.prev;
+        
         return this;
 
-
-    }         //p-15,c-20,n-null  ***  10-5  -null,  15 -10-5,  20-15-10,  null -20-15
-
+    }         
 
 
 }
@@ -230,7 +231,7 @@ list.push(5);
 list.push(10);
 list.push(15);
 list.push(20);
-console.log(list);
+//console.log(list);
 
 console.log(list.reverse())
 //console.log(list.shift())
