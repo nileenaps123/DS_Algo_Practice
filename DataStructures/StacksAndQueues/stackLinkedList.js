@@ -50,4 +50,8 @@ stack.push(200);
 stack.push(201);
 stack.push(202);
 console.log(stack);
+console.log(stack.pop());
+console.log(stack.pop());
+console.log(stack.pop());
+console.log(stack.pop());
 
