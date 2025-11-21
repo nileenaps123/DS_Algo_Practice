@@ -162,16 +162,82 @@ class SinglyLinkedList{
         }
         console.log(arr)
     }
+
+    //10 20 30 40 50 60   k=4,
+    //50 60 10 20 30 40
+    //60 10 20 30 40 50 k=-1 
+    //50 60 10 20 30 40 k=-8
+    // 20 30 40 50 60 10 k=7
+
+    // 30 40 50 60 10 20
+    rotate(k){//rotate anticlockwise
+
+        if(Math.abs(k)>this.length) k=k%this.length;  //when k(+/-) >length,remainder is used
+        if(k<0) {
+            
+            k+=this.length;
+
+        }
+        if(k===0 ||k===this.length||this.length===1) return this; //returns same list when k is 0 or same as length
+        let count=1;
+        let current=this.head;
+
+        while(count<k){
+            current=current.next;
+            count++;
+
+        }
+        
+        this.tail.next=this.head;
+        this.head=current.next;
+        this.tail=current;
+        this.tail.next=null;
+        return this;
+    } 
+
+    //10 20 30 40 50 60   k=4,
+    //50 60 10 20 30 40
+    //60 10 20 30 40 50 k=-1 
+    //50 60 10 20 30 40 k=-8
+    // 20 30 40 50 60 10 k=7
+
+    // 50 60 10 20 30 40  k=2
+
+    rotateClockwise(k){
+
+        if(Math.abs(k)>this.length) k=k%this.length;  //when k(+/-) >length,remainder is used
+        if(k<0) {
+            
+            k+=this.length;
+
+        }
+        if(k===0 ||k===this.length||this.length===1) return this; //returns same list when k is 0 or same as length
+        let count=1;
+        let current=this.head;
+        while(k<count){
+            
+        }
+
+        
+
+
+
+    }
+    
 }
 
 let list=new SinglyLinkedList();
 
 
-list.push("1").push(2);
-//list.push("2");
-//list.push("3");
-//list.push("4");
-console.log(list);
+list.push(10);
+list.push(20);
+list.push(30);
+list.push(40);
+list.push(50);
+list.push(60);
+//console.log(list);
+
+console.log(list.rotate(5));
 
 //console.log('testing reverse',list.reverse());
 //console.log(list.print())
