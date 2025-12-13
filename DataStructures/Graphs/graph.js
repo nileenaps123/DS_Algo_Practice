@@ -31,8 +31,8 @@ class Graph{
 
     depthFirstRecursive(start){
 
-        let result=[];
-        let visitFlag={};
+        const result=[];
+        const visitFlag={};
         const adjacencyList = this.adjacencyList;
 
         function DFS(vertex){
@@ -47,6 +47,28 @@ class Graph{
         }
         DFS(start);
 
+        return result;
+    }
+
+    depthFirstIterative(start){
+
+        const result=[];
+        const visitFlag={};
+        const stack=[start];
+        let vertex;
+
+        visitFlag[start]=true;
+
+        while(stack.length){
+            vertex=stack.pop();
+            result.push(vertex);
+            this.adjacencyList[vertex].forEach(neighbour=>{
+                    if(!visitFlag[neighbour]){
+                        visitFlag[neighbour]=true;
+                        stack.push(neighbour);
+                    }
+                });
+        }
         return result;
     }
 }
@@ -79,8 +101,8 @@ g.addEdge("C","E")
 g.addEdge("D","E")
 g.addEdge("D","F")
 g.addEdge("E","F")
-console.log(g)
-console.log(g.depthFirstRecursive("A"));
+//console.log(g)
+console.log(g.depthFirstIterative("A"));
 
 //          A
 //        /   \
