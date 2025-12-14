@@ -52,9 +52,9 @@ class Graph{
 
     depthFirstIterative(start){
 
+        const stack=[start];
         const result=[];
         const visitFlag={};
-        const stack=[start];
         let vertex;
 
         visitFlag[start]=true;
@@ -68,6 +68,29 @@ class Graph{
                         stack.push(neighbour);
                     }
                 });
+        }
+        return result;
+    }
+
+    breadthFirstSearch(start){
+        const queue=[start];
+        const result=[];
+        const visitFlag={};
+
+        let vertex;
+
+        visitFlag[start]=true;
+
+        while(queue.length){
+            vertex=queue.shift();
+            result.push(vertex);
+
+            this.adjacencyList[vertex].forEach(neighbour=>{
+                 if(!visitFlag[neighbour]){
+                    visitFlag[neighbour]=true;
+                    queue.push(neighbour);
+                 }
+            });
         }
         return result;
     }
@@ -102,7 +125,7 @@ g.addEdge("D","E")
 g.addEdge("D","F")
 g.addEdge("E","F")
 //console.log(g)
-console.log(g.depthFirstIterative("A"));
+console.log(g.breadthFirstSearch("A"));
 
 //          A
 //        /   \
