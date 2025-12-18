@@ -4,7 +4,7 @@ class PriorityQueue{
     }
 
     enqueue(val,priority){
-        this.values.push([val,priority]);
+        this.values.push({val,priority});
         this.sort();
    
     }
@@ -36,6 +36,7 @@ class WeightedGraph{
         const nodes=new PriorityQueue();
         const distances={};
         const previous={};
+        let path=[];//to return at the end
         let smallest;
         //build up initial state
         for (let vertex in this.adjacencyList){
@@ -52,21 +53,39 @@ class WeightedGraph{
         }
         //as long as there is something to visit
         while(nodes.values.length){
-           smallest= nodes.dequeue();
+           smallest= nodes.dequeue().val;
            
            if(smallest===finish){
-                //do something
+                // build up path to return at the end
+                while(previous[smallest]){
+                    path.push(smallest);
+                    smallest=previous[smallest];
+                }
+                break;
            }
            if(smallest|| distances[smallest]!==Infinity){
-            console.log(smallest);
-            console.log(this.adjacencyList);
-             for(let neighbour in this.adjacencyList[smallest]){
-                console.log(neighbour);
-                console.log(this.adjacencyList);
-             }
+
+                for(let neighbour of this.adjacencyList[smallest]){
+                    //find neighbouring node
+                    let nextNode=neighbour;
+                    //Calculate new distance to neighbouring node
+
+                    let candidate=distances[smallest]+nextNode.weight;
+                    let nextNeighbour=nextNode.node;
+
+                    if(candidate<distances[nextNeighbour]){
+                        //updating new smallest distance to neighbour
+                        distances[nextNeighbour]=candidate;
+                        //updating prev-how we got to neghbour
+                        previous[nextNeighbour]=smallest;
+                        //enqueue in priority queue with new neighbour
+                        nodes.enqueue(nextNeighbour,candidate);
+
+                    }
+                }
            }
         }
-
+       return  path.concat(smallest).reverse()
     }
 
 }
@@ -89,7 +108,7 @@ graph.addEdge("D","F", 1);
 graph.addEdge("E","F", 1);
 
 
-graph.Dijkstra("A", "E");
+console.log(graph.Dijkstra("A", "F"));
 
 // ["A", "C", "D", "F", "E"]
 
