@@ -1,3 +1,5 @@
+//Suboptimal Solution 
+
 /* function topKFrequent(nums, k) {
         const count = {};
         for (let num of nums){
@@ -14,7 +16,7 @@
 
 
     } */
-
+//Optimal Soln O(n)
 function topKFrequent(nums, k) {
         const count = {};
         for (let num of nums){
