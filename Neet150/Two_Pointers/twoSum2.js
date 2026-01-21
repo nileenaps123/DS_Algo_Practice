@@ -1,3 +1,5 @@
+//Prev two sum was not sorted,
+//since this is soted we can use
 //Two pointer 
 //TC-O(n)
 //SC-O(1)
