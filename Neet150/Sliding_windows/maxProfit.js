@@ -1,3 +1,5 @@
+
+//O(n),O(1) ---neetcode
 function maxProfit(prices){
     let l=0,r=1;
     let profit,maxProfit=0;
