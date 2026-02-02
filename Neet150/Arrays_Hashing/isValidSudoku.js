@@ -1,6 +1,6 @@
 function isValidSudoku(board) {
 
-    const N=9;
+    const N=9;//Aliatias Youtube Soln   
     const rowSets=new Array(N).fill().map(()=>new Set());
     const columnSets=new Array(N).fill().map(()=>new Set());
     const boxSets=new Array(N).fill().map(()=>new Set());
