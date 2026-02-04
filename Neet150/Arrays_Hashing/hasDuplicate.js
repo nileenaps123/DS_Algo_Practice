@@ -1,4 +1,4 @@
-function hasDuplicate(nums){
+/* function hasDuplicate(nums){
     
     nums.sort((a,b)=>a-b);
 
@@ -8,7 +8,23 @@ function hasDuplicate(nums){
     return false;
     
 
-}
+} */
+//Optimal Soln -O(n) my soln
+
+function hasDuplicate(nums){
+    
+    let obj={};
+
+
+    for(let num of nums){
+        obj[num]=(obj[num]||0)+1;
+        if(obj[num]>1) return true
+        
+    }
+    return false;
+    
+
+}    
 
 //Optimal  below -O(n)
 
