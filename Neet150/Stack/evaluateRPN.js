@@ -1,4 +1,4 @@
-//Using stack -O(1) & O(n)
+//Using stack -O(n) & O(n)
 function evalRPN(tokens){
     const stack=[];
 
