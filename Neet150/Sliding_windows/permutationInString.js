@@ -1,4 +1,4 @@
-function checkInclusion(s1, s2) {
+/*  function checkInclusion(s1, s2) {
 
     if(s1.length>s2.length) return false;
 
@@ -33,10 +33,36 @@ function checkInclusion(s1, s2) {
         l++;
 
     }
-
+    console.log(matches)
     return matches===26;
 
-}
+}  */
 
+    //Brute force approach
+ function checkInclusion(s1, s2) {
+
+    s1=s1.split('').sort().join('');
+    //s2=s2.split('').sort().join('');
+
+         let substr;
+         for(let i=0;i<s2.length;i++){
+            for(let j=i;j<(i+s1.length);j++){
+                substr=s2.slice(i,j+1).split('').sort().join('');
+                //console.log(substr)
+                if(substr===s1) return true;
+                
+            }
+         }
+        return false;
+
+    }
+ 
+
+
+console.log(checkInclusion("abc","leclaabee"));
 console.log(checkInclusion("abc","lecabee"));
-console.log(checkInclusion("abc","lecaabee"));
+console.log(checkInclusion("abc","lecaabee"));  //0-1,2
+//0,1     0,2 0,3
+
+
+ 

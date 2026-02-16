@@ -3,7 +3,10 @@ function threeSum(nums){
     nums.sort((a,b)=>a-b);
     let sum,l,r,res=[];
     for(let i=0;i<nums.length;i++){
-        if(nums[i]>0) break;
+        if(nums[i]>0) {
+            break;
+        }
+        console.log(`nums[i] is ${i},${nums[i]}`)    
         if(nums[i]===nums[i-1]) continue;
         l=i+1;
         r=nums.length-1;
@@ -37,11 +40,14 @@ function threeSum(nums){
 
 
 
-console.log(threeSum([-1,0,1,2,-1,-4]));  //-4,-1,0, 1,1,2,3
+console.log(threeSum([1,1,-2,-1,0,-1,1,1]));  //1,1,-2     -1,0,1  -2,1,1
+//-4,-2,-1,-1,0,1,1
 
-console.log(threeSum( [0,1,1]));
+//console.log(threeSum( [0,1,1]));
 
 
-console.log(threeSum( [0,0,0]));
+//console.log(threeSum( [0,0,0]));
 
-console.log(threeSum( [-4,-1,0, 1,1,2,3]));
+//console.log(threeSum( [-4,-1,0, 1,1,2,3]));
+
+//[-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0]  

@@ -7,8 +7,9 @@ function maxArea(heights){
     let area,maxArea=0,width;
 
     while (l<r){
-
+        console.log(`l ${l} r ${r}`)
         area=Math.min(heights[l],heights[r])*(r-l);
+        console.log(`area is ${area}`)
         maxArea=Math.max(maxArea,area);
 
         if(heights[l]<heights[r]){
@@ -24,5 +25,5 @@ function maxArea(heights){
 }
 
 console.log(maxArea([1,7,2,5,4,7,3,6]));
-console.log(maxArea([2,2,2]));
+//console.log(maxArea([2,2,2]));
 //console.log(maxArea());

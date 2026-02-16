@@ -39,7 +39,7 @@
 
 //3---O(n+n)~~O(n)
 
-/* function longestConsecutive(nums){
+ function longestConsecutive(nums){
     let finalConsecutiveSeq=0;
     let trackerSet=new Set(nums);
     
@@ -58,10 +58,10 @@
         
     }
     return finalConsecutiveSeq;
-}  */  
+}   
 
 //Sorting --my soln O(nlogn)  O(1)
-
+/*
 function longestConsecutive(nums){
 
     if(nums.length===0) return 0;
@@ -84,9 +84,9 @@ function longestConsecutive(nums){
         }
     }
     return count;
-} 
+} */
 
 //3,3,4,4,5,6,7,100,101,205,206,207,208,209,210
-console.log(longestConsecutive([2,20,4,10,3,4,5]));
-console.log(longestConsecutive([2,20,4,10,3,5]));
-console.log(longestConsecutive([3,3,4,4,5,6,7,8,9,100,101,205,206,207,208,209,210]));
+//console.log(longestConsecutive([2,20,4,10,3,4,5]));
+console.log(longestConsecutive( [0,3,2,5,4,6,1,1]));
+//console.log(longestConsecutive([3,3,4,4,5,6,7,8,9,100,101,205,206,207,208,209,210]));
