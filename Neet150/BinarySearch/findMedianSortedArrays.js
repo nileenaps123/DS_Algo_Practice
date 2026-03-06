@@ -34,3 +34,7 @@ function findMedianSortedArrays(nums1,nums2){
 
     return 0;
 }
+
+//console.log(findMedianSortedArrays([1,2],[3]));
+//console.log(findMedianSortedArrays([1,3],[2,4]));
+console.log(findMedianSortedArrays([4],[1,2,3,5,6]));
