@@ -23,12 +23,13 @@ class ListNode{
         curr=head;
         while(curr){
             if(curr.random){
-               curr.next.random=curr.random.next;
+               curr.next.random=curr.random.next;// as curr.random is old node & curr.random.next 
+                                                    //is copy node
                
             }else{
                 curr.next.random=null;
             }
-            curr=curr.next.next
+            curr=curr.next.next;
         }
 
         //detach duplicate nodes and connect originals with each other

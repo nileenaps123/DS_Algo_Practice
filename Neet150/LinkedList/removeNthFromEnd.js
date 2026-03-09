@@ -4,7 +4,7 @@ class ListNode{
         this.next=next;
     }
 }
-//TC -O(n),SC -O(1)
+//TC -O(n),SC -O(1)  Neetcode
 function removeNthFromEnd(head,n){
 
     const dummy=new ListNode(0,head);
@@ -12,12 +12,13 @@ function removeNthFromEnd(head,n){
     let left=dummy;
     let right=head;
 
-    while(n>0){
+    while(n>0){ //this iteration moves right "n" steps,sothat the gap btwn left & right is maintained
         right=right.next;
         n--;
     }
 
-    while(right!==null){
+    while(right!==null){//Move both pointers until right reaches the end.,then left will be at posn just before to be 
+                                    //removed node
         left=left.next;
         right=right.next;
     }
