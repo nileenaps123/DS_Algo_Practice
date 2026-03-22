@@ -6,6 +6,9 @@ class ListNode{
 }
 //Iterative-TC O(n+m),SC -O(1)
 function mergeTwoLists(list1,list2){
+    
+    if(!list1)return list2;
+    if(!list2)return list1;
     const dummy={val:0,next:null};
     let curr=dummy;
 
