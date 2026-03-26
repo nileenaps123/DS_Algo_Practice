@@ -37,7 +37,7 @@ function invertTree(root){
     if(!root)return null;
     const queue=[root];
     while(queue.length){
-        const node=queue.shift();
+        const node=queue.shift();//Shift has TC of O(n)
         if(node && (node.right||node.left)){
             [node.left,node.right]=[node.right,node.left];
             queue.push(node.left,node.right);
@@ -45,7 +45,7 @@ function invertTree(root){
     }
     return root;
 
-}
+} 
 const root=new TreeNode(4);
 root.left=new TreeNode(2);
 root.right=new TreeNode(7);
