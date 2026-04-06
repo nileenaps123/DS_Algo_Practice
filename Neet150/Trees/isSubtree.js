@@ -15,8 +15,10 @@ The space complexity comes from the recursion stack:
 
 The isSubtree function recursively traverses the main tree root, which can go as deep as the height of the tree
 In the worst case (a skewed tree), the height equals n, so the recursion stack for isSubtree uses O(n) space
-The same function also uses recursion, but its stack depth is bounded by min(height of root subtree, height of subRoot), which is at most O(n)
-Since these recursive calls don't happen simultaneously (we finish one same call before moving to the next node in isSubtree), the maximum stack depth is O(n)
+The same function also uses recursion, but its stack depth is bounded by min(height of root subtree, height of subRoot), which 
+is at most O(n)
+Since these recursive calls don't happen simultaneously (we finish one same call before moving to the next node 
+in isSubtree), the maximum stack depth is O(n)
 Therefore, the space complexity is O(n)
 */
 
