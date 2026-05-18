@@ -1,4 +1,4 @@
-function longestPalindrome(s){
+function longestPalindrome(s){//not dynamic progrm,its 2 ptr
     let resLen=0;
     let resIdx;
 
