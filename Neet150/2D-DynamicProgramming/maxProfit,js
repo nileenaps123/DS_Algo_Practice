@@ -1,0 +1,23 @@
+function maxProfit(prices){//TC -O(n),SC-O(1)--destination faang and Gems
+
+    if(!prices || prices.length<=1) return 0;//Catches null or undefined,array is empty,array has only one element
+
+    let buy=-prices[0];//Bought the first stock
+    let sell=0;//Cannot sell on day 0
+    let rest=0;//no stock is held or sold on day1
+
+    let prevBuy,prevSell,prevRest;
+
+    for(let i=1;i<prices.length;i++){
+
+        prevBuy=buy;
+        prevSell=sell;
+        prevRest=rest;
+
+        buy=Math.max(prevBuy,prevRest-prices[i]);// Remain with prev buy or buy after rest
+        sell=prevBuy+prices[i];// Sell the stock we held
+        rest=Math.max(prevRest,prevSell)// Continue with rest or a rest after a sell
+
+    }
+    return Math.max(sell,rest);
+}
