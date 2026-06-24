@@ -1,5 +1,5 @@
-function minDistance(word1,word2){
-
+function minDistance(word1,word2){//nikhil
+//tc-O(m*n),sc-O(m*n) --due to 2d dp array
     const m= word1.length;//word 1 rows(m+1)
     const n= word2.length;//word2 columns(n+1)
 
