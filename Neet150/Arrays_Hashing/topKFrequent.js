@@ -31,7 +31,7 @@ function topKFrequent(nums, k) {
             arr[value].push(parseInt(key));
         }
         const res=[];
-        for(let i=arr.length-1;i>=0 && res.length<k;i--){
+        for(let i=arr.length-1;i>0 && res.length<k;i--){
             for(let j of arr[i]){
                 res.push(j);
                 if(res.length===k) break;

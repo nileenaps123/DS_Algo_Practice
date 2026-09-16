@@ -9,7 +9,7 @@ function uniquePaths(m,n){//TC,SC -O(m*n)
             }else{
                 grid[i][j]=grid[i][j-1]+grid[i-1][j];
             }
-        }
+         }
     }
     return grid[m-1][n-1];
 }

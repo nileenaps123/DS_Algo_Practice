@@ -40,24 +40,21 @@
 //3---O(n+n)~~O(n)
 
  function longestConsecutive(nums){
-    let finalConsecutiveSeq=0;
-    let trackerSet=new Set(nums);
-    
-    for(let i=0;i<trackerSet.size;i++){ //O(n)
-        if(!trackerSet.has(nums[i]-1)){ 
-            let currNum=nums[i];
-            let currConsecutiveSeq=1;
-             while(trackerSet.has(currNum+1)){ //O(1)
-            //O(n)
-                currConsecutiveSeq++;
-                currNum++;
+    if(nums.length===0)return 0;// Total TC -O(n),SC -O(n)
+    const numSet=new Set(nums);
+    let maxCount=1;
+    for(let num of numSet){
+        if(!numSet.has(num-1)){
+            let curr=num+1;
+            let count=1;
+            while(numSet.has(curr)){
+                count++;
+                curr++;
+            }
+            maxCount=Math.max(maxCount,count);   
         }
-
-        finalConsecutiveSeq=Math.max(finalConsecutiveSeq,currConsecutiveSeq);
-        }
-        
     }
-    return finalConsecutiveSeq;
+    return maxCount;
 }   
 
 //Sorting --my soln O(nlogn)  O(1)
@@ -80,7 +77,7 @@ function longestConsecutive(nums){
         else{
             count =Math.max(currCount,count);
             currCount=1;
-            continue;
+            
         }
     }
     return count;

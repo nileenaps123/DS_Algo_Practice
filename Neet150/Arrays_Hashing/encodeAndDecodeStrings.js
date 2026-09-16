@@ -11,7 +11,7 @@ function encode(strs) {
 
 
 function decode(s) {
-        if (s.length === 0) return '';
+        if (s.length === 0) return [];
         //5#Hello5#World
         let res=[],i=0;
         while(i<s.length){

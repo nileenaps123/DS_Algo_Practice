@@ -1,27 +1,21 @@
-/* function isPalindrome(s){
-    let newStr='';
-    function isAlphaNumeric(c){
-        return(
+/* function isPalindrome(s){ //TC-O(n),SC-O(n)
+    let regStr='',revStr='';
+    for(let i=0;i<s.length;i++){
 
-            (c>='a'  && c<='z')||
-            (c>='A'  && c<='Z')||
-            (c>='0'  && c<='9')
+        let f=s[i].toLowerCase(); 
 
-        );
+        if (!((f>='a' && f <='z')
+        ||(f>='0' &&  f <='9'))) continue;
+        
+        regStr+=f;
 
-    }
-    for(let c of s){
-
-        if(isAlphaNumeric(c)){
-
-            newStr+=c.toLowerCase();
-
-
-        }
+    }    
+    for(let j=regStr.length-1;j>=0;j--){
+        
+        revStr+=regStr[j];
 
     }
-
-    return newStr===newStr.split('').reverse().join('');
+    return (regStr===revStr)
 
 } */
 
@@ -41,26 +35,20 @@ function isPalindrome(s){
     }
 
     while(l<r){
-        while((l<r)  && !isAlphaNumeric(s[l])){
+        if(!(isAlphaNum(s[l]))) {
             l++;
+            continue;
+        }    
 
-        }
-
-        while((l<r)  && !isAlphaNumeric(s[r])){
+        if(!(isAlphaNum(s[r]))) {
             r--;
-
-        }
-
-        if(s[l].toLowerCase()!==s[r].toLowerCase()){
-            return false;
-        }
+            continue;
+        }   
+        if(s[l].toLowerCase()!==s[r].toLowerCase()) return false
         l++;
         r--;
-
-    }
+    };
     return true;
-
-
 }    
 
 
