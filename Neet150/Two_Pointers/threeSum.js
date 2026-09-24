@@ -1,43 +1,38 @@
 
-function threeSum(nums){
-    nums.sort((a,b)=>a-b);
-    let sum,l,r,res=[];
-    for(let i=0;i<nums.length;i++){
-        if(nums[i]>0) {
-            break;
-        }
-        console.log(`nums[i] is ${i},${nums[i]}`)    
-        if(nums[i]===nums[i-1]) continue;
-        l=i+1;
-        r=nums.length-1;
-        while(l<r){
-            sum=nums[i]+nums[l]+nums[r];
-            if(sum<0){
-                l++;
-                if((l<r) && (nums[l]===nums[l-1])){
-                    l++;
-                }
-            }else if(sum>0){
+var threeSum = function(nums) { //TC -O(n2),SC-O(n)
+    nums.sort((a,b)=>a-b);//O(nlogn)
+    const res=[];
+    for(let i=0;i<nums.length-2;i++){//O(n)
+        if(nums[i]>0) break;
+        let l=i+1,r=nums.length-1;
+        let sum;
+        if (i>0 && nums[i]===nums[i-1]) continue;
+        while(l<r){//O(n)
+            
+            sum=nums[i]+nums[l]+nums[r]
+            if(sum>0){
                 r--;
-                if((l<r) && (nums[r]===nums[r+1])){
-                    r--;
-                }
+            }
+            else if(sum<0){
+                l++
             }else{
                 res.push([nums[i],nums[l],nums[r]]);
-                l++;
-                r--;
-                if((l<r) && (nums[l]===nums[l-1])){
+                l++,r--;
+
+                while(l<r && nums[l]===nums[l-1]){
                     l++;
                 }
-                if((l<r) && (nums[r]===nums[r+1])){
+                while(l<r && nums[r]===nums[r+1]){
                     r--;
                 }
             }
-        }
-    }
-    return res; 
-    }
 
+        }    
+    
+
+    }
+    return res;
+};
 
 
 console.log(threeSum([1,1,-2,-1,0,-1,1,1]));  //1,1,-2     -1,0,1  -2,1,1
